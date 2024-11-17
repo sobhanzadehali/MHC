@@ -9,9 +9,20 @@ from django_jalali.db import models as jmodels
 User = get_user_model()
 
 
+class Specialty(models.Model):
+    name = models.CharField(_('Name'), max_length=255)
+
+    class Meta:
+        verbose_name = _('Specialty')
+        verbose_name_plural = _('Specialties')
+
+    def __str__(self):
+        return self.name
+
+
 class Doctor(models.Model):
     name = models.CharField(_("Name"), max_length=255)
-    specialization = models.CharField(_('specialization'), max_length=255, help_text=_('doctor specialization'))
+    specialization = models.ForeignKey('appointment.Specialty', on_delete=models.CASCADE)
     phone_number = models.CharField(_('phone'), max_length=11)
     objects = jmodels.jManager()
 
@@ -44,9 +55,8 @@ class Appointment(models.Model):
 
     objects = jmodels.jManager()
 
-
     class Meta:
         unique_together = (('doctor', 'patient', 'appointment_date'),)
+
     def __str__(self):
         return f'{self.patient} - {self.doctor} for {self.appointment_date}'
-

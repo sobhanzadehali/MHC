@@ -12,7 +12,7 @@ from django_jalali.db import models as jmodels
 # Register your models here.
 
 
-def export_to_csv(modeladmin, request, queryset):
+def export_appointments_to_csv(modeladmin, request, queryset):
     # Create the response object to send the CSV file
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="export.csv"'
@@ -29,7 +29,28 @@ def export_to_csv(modeladmin, request, queryset):
     return response
 
 
-export_to_csv.short_description = "Export selected to CSV"
+export_appointments_to_csv.short_description = "Export selected to CSV"
+
+
+def export_patients_to_csv(modeladmin, request, queryset):
+    # Create the response object to send the CSV file
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="export.csv"'
+
+    writer = csv.writer(response)
+    # Write the header row
+    writer.writerow(
+        ['ID', 'Name', 'Phone Number', 'File Number', 'Student Number'])  # Customize this as per your model fields
+
+    # Write data rows
+    for obj in queryset:
+        writer.writerow([obj.id, obj.name, obj.phone_number, obj.file_number,
+                         obj.student_number])  # Customize this as per your model fields
+
+    return response
+
+
+export_patients_to_csv.short_description = "Export selected to CSV"
 
 
 @admin.register(Specialty)
@@ -50,6 +71,7 @@ class DoctorAdmin(admin.ModelAdmin):
 class PatientAdmin(admin.ModelAdmin):
     search_fields = ('name', 'phone_number', 'student_number', 'file_number')
     list_display = ('name', 'phone_number', 'student_number', 'file_number')
+    actions = [export_patients_to_csv,]
 
 
 @admin.register(Appointment)
@@ -67,7 +89,7 @@ class AppointmentAdmin(admin.ModelAdmin):
         jmodels.jDateField: {'widget': AdminJalaliDateWidget},
         jmodels.jDateTimeField: {'widget': AdminSplitJalaliDateTime},
     }
-    actions = [export_to_csv]
+    actions = [export_appointments_to_csv]
 
     def get_search_results(self, request, queryset, search_term):
         # Call the default search behavior

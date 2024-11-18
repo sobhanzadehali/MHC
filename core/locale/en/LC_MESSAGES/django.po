@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-18 11:51+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: appointment/filters.py:7
+msgid "Date Range"
+msgstr ""
+
+#: appointment/filters.py:12
+msgid "Tomorrow"
+msgstr ""
+
+#: appointment/filters.py:13
+msgid "This Week"
+msgstr ""
+
+#: appointment/filters.py:14
+msgid "This Month"
+msgstr ""
+
+#: appointment/filters.py:15
+msgid "Next Week"
+msgstr ""
+
+#: appointment/filters.py:16
+msgid "Next Month"
+msgstr ""
+
+#: appointment/filters.py:17
+msgid "This Year"
+msgstr ""
+
+#: appointment/models.py:13 appointment/models.py:24 appointment/models.py:39
+msgid "Name"
+msgstr ""
+
+#: appointment/models.py:16
+msgid "Specialty"
+msgstr ""
+
+#: appointment/models.py:17
+msgid "Specialties"
+msgstr ""
+
+#: appointment/models.py:26 appointment/models.py:40
+msgid "phone"
+msgstr ""
+
+#: appointment/models.py:31
+msgid "Doctor"
+msgstr ""
+
+#: appointment/models.py:32
+msgid "Doctors"
+msgstr ""
+
+#: appointment/models.py:41
+msgid "file number"
+msgstr ""
+
+#: appointment/models.py:42
+msgid "student number"
+msgstr ""
+
+#: appointment/models.py:47
+msgid "Patient"
+msgstr ""
+
+#: appointment/models.py:48
+msgid "Patients"
+msgstr ""
+
+#: appointment/models.py:57
+msgid "appointment date"
+msgstr ""
+
+#: appointment/models.py:58
+msgid "description"
+msgstr ""
+
+#: appointment/models.py:64
+msgid "Appointment"
+msgstr ""
+
+#: appointment/models.py:65
+msgid "Appointments"
+msgstr ""
+
+#: core/settings.py:113
+msgid "English"
+msgstr ""
+
+#: core/settings.py:114
+msgid "Farsi"
+msgstr ""
+
+#: core/urls.py:23
+msgid "admin/"
+msgstr ""

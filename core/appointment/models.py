@@ -28,6 +28,8 @@ class Doctor(models.Model):
 
     class Meta:
         unique_together = (('name', 'phone_number'),)
+        verbose_name = _('Doctor')
+        verbose_name_plural = _('Doctors')
 
     def __str__(self) -> str:
         return self.name
@@ -42,6 +44,8 @@ class Patient(models.Model):
 
     class Meta:
         unique_together = (('name', 'phone_number'),)
+        verbose_name = _('Patient')
+        verbose_name_plural = _('Patients')
 
     def __str__(self) -> str:
         return self.name
@@ -57,6 +61,8 @@ class Appointment(models.Model):
 
     class Meta:
         unique_together = (('doctor', 'patient', 'appointment_date'),)
+        verbose_name = _('Appointment')
+        verbose_name_plural = _('Appointments')
 
     def __str__(self):
         return f'{self.patient} - {self.doctor} for {self.appointment_date}'

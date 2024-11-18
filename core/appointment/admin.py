@@ -1,13 +1,11 @@
 import csv
 from django.contrib import admin
-from django.db.models import Q
 from django.http import HttpResponse
 import jdatetime
 from .models import Patient, Doctor, Appointment, Specialty
-from jalali_date.admin import ModelAdminJalaliMixin
+from .filters import JalaliDateRangeFilter
 from jalali_date.widgets import AdminSplitJalaliDateTime, AdminJalaliDateWidget
-from django_jalali.admin.filters import JDateFieldListFilter
-import django_jalali.admin as jadmin
+# from django_jalali.admin.filters import JDateFieldListFilter
 from django_jalali.db import models as jmodels
 
 
@@ -57,7 +55,8 @@ class PatientAdmin(admin.ModelAdmin):
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
     list_filter = (
-        ('appointment_date', JDateFieldListFilter),
+        # ('appointment_date', JDateFieldListFilter),
+        JalaliDateRangeFilter,
         'doctor__name',
     )
     autocomplete_fields = ['patient', 'doctor']

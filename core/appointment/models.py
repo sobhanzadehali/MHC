@@ -56,6 +56,7 @@ class Appointment(models.Model):
     patient = models.ForeignKey('appointment.Patient', on_delete=models.CASCADE, related_name='appointments')
     appointment_date = jmodels.jDateTimeField(_('appointment date'))
     description = models.TextField(_('description'), blank=True, null=True)
+    is_paid = models.BooleanField(_('is paid'), default=False)
 
     objects = jmodels.jManager()
 

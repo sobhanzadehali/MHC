@@ -85,6 +85,13 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_display = ['patient', 'doctor', 'appointment_date']
     search_fields = ['patient__name', 'doctor__name', 'patient__file_number', 'patient__phone_number',
                      'patient__student_number', 'appointment_date']
+    fieldsets = [
+        ('appointment', {
+            'fields': [
+                'patient','doctor','appointment_date','description','is_paid',
+            ],
+        }),
+    ]
     formfield_overrides = {
         jmodels.jDateField: {'widget': AdminJalaliDateWidget},
         jmodels.jDateTimeField: {'widget': AdminSplitJalaliDateTime},

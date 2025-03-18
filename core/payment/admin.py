@@ -1,7 +1,19 @@
 from django.contrib import admin
-
-from payment.models import AppointmentCost
+from .models import Debts
 
 # Register your models here.
 
-admin.site.register(AppointmentCost) # hazine har model jalase
+
+@admin.register(Debts)
+class DebtsAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Debts', {
+            'fields': [
+                'patient','amount'
+            ],
+        }),
+    ]
+    search_fields = ['patient__name','patient__student_number']
+    list_display = ['patient','amount']
+    list_filter = ['patient']
+    readonly_fields = ['amount']

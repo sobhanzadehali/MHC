@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'django_jalali',
     'appointment',
+    'payment.apps.PaymentConfig',
     'rosetta',
 ]
 

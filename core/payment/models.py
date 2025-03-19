@@ -24,3 +24,10 @@ class Debts(models.Model):
 
         return amount
 
+    def pay_debt(self):
+        user_appointments = Appointment.objects.filter(patient=self.patient, is_paid=False)
+        for appointment in user_appointments:
+            appointment.is_paid = True
+            appointment.save()
+        
+

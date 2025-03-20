@@ -1,5 +1,8 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
 from appointment.models import Patient, Appointment
 from django.utils.translation import gettext_lazy as _
 
@@ -31,3 +34,8 @@ class Debts(models.Model):
             appointment.save()
         
 
+
+@receiver(post_save, sender=Patient)
+def create_patient_debt(sender, instance, created, **kwargs):
+    if created:
+        Debts.objects.create(patient=instance)

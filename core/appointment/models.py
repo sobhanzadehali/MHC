@@ -38,7 +38,7 @@ class Doctor(models.Model):
 class Patient(models.Model):
     name = models.CharField(_("Name"), max_length=255)
     phone_number = models.CharField(_('phone'), max_length=11)
-    file_number = models.CharField(_('file number'), max_length=255)
+    file_number = models.CharField(_('file number'), max_length=255, blank=True, null=True)
     student_number = models.CharField(_('student number'), max_length=255, blank=True, null=True)
     objects = jmodels.jManager()
 

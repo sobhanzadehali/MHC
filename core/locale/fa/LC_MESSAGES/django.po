@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-18 11:51+0330\n"
-"PO-Revision-Date: 2024-11-18 11:53+0330\n"
+"POT-Creation-Date: 2025-03-20 10:01+0330\n"
+"PO-Revision-Date: 2025-03-20 10:02+0330\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -95,24 +95,38 @@ msgstr "تاریخ نوبت"
 msgid "description"
 msgstr "توضیحات"
 
-#: appointment/models.py:64
-#| msgid "appointment date"
+#: appointment/models.py:59
+msgid "is paid"
+msgstr "پرداخت شده؟"
+
+#: appointment/models.py:65
 msgid "Appointment"
 msgstr "نوبت"
 
-#: appointment/models.py:65
-#| msgid "appointment date"
+#: appointment/models.py:66
 msgid "Appointments"
 msgstr "نوبت ها"
 
-#: core/settings.py:113
+#: core/settings.py:114
 msgid "English"
 msgstr "english"
 
-#: core/settings.py:114
+#: core/settings.py:115
 msgid "Farsi"
 msgstr "farsi"
 
 #: core/urls.py:23
 msgid "admin/"
 msgstr ""
+
+#: payment/admin.py:56
+msgid "Pay selected debts"
+msgstr "پرداخت بدهی های انتخاب شده"
+
+#: payment/models.py:10
+msgid "patient"
+msgstr "بیمار"
+
+#: payment/models.py:13 payment/models.py:14
+msgid "debts"
+msgstr "بدهی ها"

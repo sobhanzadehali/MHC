@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.shortcuts import redirect, render
 from django.urls import path
+from django.utils.translation import gettext_lazy as _
 
 from .forms import PayDebtsForm
 from .models import Debts
@@ -52,4 +53,4 @@ class DebtsAdmin(admin.ModelAdmin):
         for debt in queryset:
             debt.pay_debt()
         self.message_user(request, "Selected debts have been paid.")
-    pay_debt.short_description = "Pay selected debts"
+    pay_debt.short_description = _("Pay selected debts")

@@ -4,7 +4,7 @@ from django.urls import path
 from django.utils.translation import gettext_lazy as _
 
 from .forms import PayDebtsForm
-from .models import Debts
+from .models import Debts,AppointmentCost
 from .forms import PayDebtsForm
 
 
@@ -54,3 +54,5 @@ class DebtsAdmin(admin.ModelAdmin):
             debt.pay_debt()
         self.message_user(request, "Selected debts have been paid.")
     pay_debt.short_description = _("Pay selected debts")
+
+admin.site.register(AppointmentCost)

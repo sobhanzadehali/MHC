@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 10:01+0330\n"
+"POT-Creation-Date: 2025-03-20 20:06+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,10 +122,26 @@ msgstr ""
 msgid "Pay selected debts"
 msgstr ""
 
-#: payment/models.py:10
+#: payment/models.py:14
+msgid "price"
+msgstr ""
+
+#: payment/models.py:16
+msgid "Appointment Cost"
+msgstr ""
+
+#: payment/models.py:17
+msgid "Appointment Costs"
+msgstr ""
+
+#: payment/models.py:28
 msgid "patient"
 msgstr ""
 
-#: payment/models.py:13 payment/models.py:14
+#: payment/models.py:31 payment/models.py:32
 msgid "debts"
+msgstr ""
+
+#: payment/models.py:45
+msgid "no appointment cost, set a cost in appointment cost model"
 msgstr ""

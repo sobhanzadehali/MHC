@@ -21,9 +21,8 @@ class Debts(models.Model):
     @property
     def amount(self):
         amount = 0
-        user_appointments = Appointment.objects.filter(patient=self.patient, is_paid=False)
-        for appointment in user_appointments:
-            amount += settings.THERAPY_COST
+        user_appointments = Appointment.objects.filter(patient=self.patient, is_paid=False).count()
+        amount += settings.THERAPY_COST * user_appointments
 
         return amount
 
@@ -32,7 +31,7 @@ class Debts(models.Model):
         for appointment in user_appointments:
             appointment.is_paid = True
             appointment.save()
-        
+
 
 
 @receiver(post_save, sender=Patient)

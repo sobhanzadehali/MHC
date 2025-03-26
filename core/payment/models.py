@@ -11,15 +11,17 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 class AppointmentCost(models.Model):
-    price = models.BigIntegerField(_("price"),default=0)
+    price = models.BigIntegerField(_("price"), default=0)
+
     class Meta:
         verbose_name = _("Appointment Cost")
         verbose_name_plural = _("Appointment Costs")
 
-    def save(self,*args, **kwargs):
+    def save(self, *args, **kwargs):
         if not self.pk and AppointmentCost.objects.exists():
             raise ValidationError("only one appointment cost is allowed")
         super(AppointmentCost, self).save(*args, **kwargs)
+
     def __str__(self):
         return str(self.price)
 
@@ -45,6 +47,12 @@ class Debts(models.Model):
             raise ValidationError(_("no appointment cost, set a cost in appointment cost model"))
 
         return amount
+
+    @property
+    def canceled(self):
+        count = 0
+        count = Appointment.objects.filter(patient=self.patient, is_canceled=True).count()
+        return count
 
     def pay_debt(self):
         user_appointments = Appointment.objects.filter(patient=self.patient, is_paid=False)

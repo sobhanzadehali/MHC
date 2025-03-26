@@ -57,6 +57,7 @@ class Appointment(models.Model):
     appointment_date = jmodels.jDateTimeField(_('appointment date'))
     description = models.TextField(_('description'), blank=True, null=True)
     is_paid = models.BooleanField(_('is paid'), default=False)
+    is_canceled = models.BooleanField(_('is canceled'), default=False)
 
     objects = jmodels.jManager()
 
@@ -67,3 +68,8 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f'{self.patient} - {self.doctor} for {self.appointment_date}'
+
+    def cancel_appointment(self):
+        self.is_canceled = True
+        self.save()
+

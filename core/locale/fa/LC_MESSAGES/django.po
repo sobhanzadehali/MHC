@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-20 20:06+0330\n"
-"PO-Revision-Date: 2025-03-20 20:07+0330\n"
+"POT-Creation-Date: 2025-03-26 19:54+0330\n"
+"PO-Revision-Date: 2025-03-26 19:55+0330\n"
 "Last-Translator:   <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -99,11 +99,15 @@ msgstr "توضیحات"
 msgid "is paid"
 msgstr "پرداخت شده؟"
 
-#: appointment/models.py:65
+#: appointment/models.py:60
+msgid "is canceled"
+msgstr "کنسل شده"
+
+#: appointment/models.py:66
 msgid "Appointment"
 msgstr "نوبت"
 
-#: appointment/models.py:66
+#: appointment/models.py:67
 msgid "Appointments"
 msgstr "نوبت ها"
 

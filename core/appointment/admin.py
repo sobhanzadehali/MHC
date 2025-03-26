@@ -88,7 +88,7 @@ class AppointmentAdmin(admin.ModelAdmin):
     fieldsets = [
         ('appointment', {
             'fields': [
-                'patient','doctor','appointment_date','description','is_paid',
+                'patient','doctor','appointment_date','description','is_paid','is_canceled'
             ],
         }),
     ]

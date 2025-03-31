@@ -13,6 +13,7 @@ from .forms import PayDebtsForm
 
 @admin.register(Debts)
 class DebtsAdmin(admin.ModelAdmin):
+    autocomplete_fields = ('patient', )
     fieldsets = [
         ('Debts', {
             'fields': [

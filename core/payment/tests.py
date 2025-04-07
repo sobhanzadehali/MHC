@@ -17,3 +17,4 @@ class PaymentTestCase(TestCase):
         p = Patient.objects.create(name='Jane Doe', phone_number='09876543210')
         obj = Debts.objects.get(patient=p)
         self.assertEqual(obj.amount, 0)
+        

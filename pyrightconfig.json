@@ -1,0 +1,11 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "python.analysis": {
+    "typeCheckingMode": "basic",
+    "diagnosticSeverityOverrides": {
+      "reportMissingImports": "warning", // Downgrade unresolved import severity
+      "reportGeneralTypeIssues": "none" // Disable generic type errors
+    }
+  }
+}

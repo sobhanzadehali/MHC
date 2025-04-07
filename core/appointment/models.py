@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from jalali_date import datetime2jalali
 from django_jalali.db import models as jmodels
 
 # Create your models here.
@@ -137,4 +136,3 @@ class Appointment(models.Model):
         """
         self.is_canceled = True
         self.save()
-

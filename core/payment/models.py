@@ -64,3 +64,17 @@ class Debts(models.Model):
 def create_patient_debt(sender, instance, created, **kwargs):
     if created:
         Debts.objects.create(patient=instance)
+
+
+
+class PaymentHistory(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, verbose_name=_('patient'))
+    amount = models.BigIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created at'))
+
+    class Meta:
+        verbose_name = _('payment history')
+        verbose_name_plural = _('payment histories')
+
+    def __str__(self):
+        return f"{self.patient.name} - {self.created_at}"

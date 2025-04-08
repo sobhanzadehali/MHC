@@ -1,6 +1,6 @@
 from django.test import TestCase
 from appointment.models import Patient
-from payment.models import Debts, AppointmentCost
+from payment.models import Debts, AppointmentCost, PaymentHistory
 
 
 # Create your tests here.
@@ -17,4 +17,13 @@ class PaymentTestCase(TestCase):
         p = Patient.objects.create(name='Jane Doe', phone_number='09876543210')
         obj = Debts.objects.get(patient=p)
         self.assertEqual(obj.amount, 0)
-        
+
+# test payment history
+class PaymentHistoryTestCase(TestCase):
+    def setUp(self):
+        Patient.objects.create(name='Jane Doe', phone_number='0987654321')
+        PaymentHistory.objects.create(amount=5000,patient=Patient.objects.get(name='Jane Doe'))
+    def test_payment_history(self):
+        p = Patient.objects.get(name='Jane Doe')
+        obj = PaymentHistory.objects.get(patient=p)
+        self.assertEqual(obj.amount, 5000)

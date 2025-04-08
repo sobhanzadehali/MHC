@@ -1,5 +1,5 @@
 #TODO: Implement the checkout class
-class checkout:
+class Checkout:
     """
     This class represents a checkout process for an appointment.
     """

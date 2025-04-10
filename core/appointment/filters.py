@@ -9,6 +9,7 @@ class JalaliDateRangeFilter(SimpleListFilter):
 
     def lookups(self, request, model_admin):
         return [
+            ('today', _('Today')),
             ('tomorrow', _('Tomorrow')),
             ('this_week', _('This Week')),
             ('this_month', _('This Month')),
@@ -19,6 +20,12 @@ class JalaliDateRangeFilter(SimpleListFilter):
 
     def queryset(self, request, queryset):
         today = jdatetime.date.today()
+        
+        # today
+        if self.value() =='today':
+            start_of_today = jdatetime.datetime.combine(today,jdatetime.time(0, 0))
+            end_of_today = jdatetime.datetime.combine(today,jdatetime.time(23, 59, 59))
+            return queryset.filter(appointment_date__range=[start_of_today.togregorian(), end_of_today.togregorian()])
 
         # tomorrow
         if self.value() == 'tomorrow':

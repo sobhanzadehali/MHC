@@ -136,3 +136,12 @@ class Appointment(models.Model):
         """
         self.is_canceled = True
         self.save()
+
+    def check_is_paid(self):
+        """
+        checks if appointment is paid or not
+        """
+        return self.is_paid
+
+    
+
